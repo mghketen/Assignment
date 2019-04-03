@@ -1,0 +1,102 @@
+package assignment;
+
+
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Assignment {
+
+    
+    public static void main(String[] args)throws IOException {
+        String ID;
+        String FirstName;
+        String LastName;
+        int course1grade;
+        int course2grade;
+        int course3grade;
+        int course4grade;
+        int course5grade;
+        int choice;
+        String lineF;
+                
+        Scanner scr = new Scanner(System.in);
+        File STDFile = new File("C:\\Users\\HAKAN\\Desktop\\Students.txt");
+        FileWriter fw = new FileWriter(STDFile);
+        FileReader fr = new FileReader(STDFile);
+        BufferedReader input = new BufferedReader(fr);
+        BufferedWriter output = new BufferedWriter(fw);
+        
+        ArrayList<String> arr = new ArrayList<String>();
+        
+        do{
+            input.add(lineF);
+        }while((lineF = input.readLine()) != null);
+        
+        printmenu();
+        int choice = scr.nextInt();
+        
+        switch(choice){
+            case 1:
+                System.out.println("Enter Student ID : ");
+                int ID = scr.nextInt();
+                System.out.println(arr.get(ID));
+                
+            case 2:
+                for(int i = 0 ; arr.length() ; i++ ){
+                    System.out.println(arr.get(i));
+                }
+            
+            case 3:
+                System.out.println("Enter Student ID : ");
+                int ID = scr.nextInt();
+                System.out.println("Student info : " + arr.get(ID));
+                System.out.println("Enter updated info : ");
+                String newinfo = scr.nextLine();
+                arr.remove(ID);
+                arr.add(ID , newinfo);
+                for(int j = 0 ; j < arr.length ; j++){
+                    output.write(j);
+                }
+                
+            case 7:
+                System.exit(0);
+        }
+    }
+    
+    public static void printMenu(){
+        System.out.println("1.Show student information");
+        System.out.println("2.Show ALL student information");
+        System.out.println("3.Update student information");
+        System.out.println("4.Delete student information");
+        System.out.println("5.Show GPA");
+        System.out.println("6.Show the Average GPA");
+        System.out.println("7.Exit Menu");
+        
+    }
+    public class Students {
+    private String ID;
+    private String FirstName;
+    private String LastName;
+    private int course1grade;
+    private int course2grade;
+    private int course3grade;
+    private int course4grade;
+    private int course5grade;
+    
+    public Students(String StudentID , String first , String last ){
+        StudentID = ID;
+        first = FirstName;
+        last = LastName;
+        
+        
+    }
+    public String toString(){
+        System.out.println(ID + " " + FirstName + " " + LastName );
+    }
+    
+    public void getMenu(){
+        
+    }
+}
